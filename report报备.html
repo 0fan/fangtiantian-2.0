@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="_1m2 _report">
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>房天天v2</title>
+
+	<link rel="stylesheet" href="css/light7.min.css">
+	<link rel="stylesheet" href="css/ant-iconfont.css">
+	<link rel="stylesheet" href="css/app.css">
+
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/light7.min.js"></script>
+</head>
+<body>
+<div class="page">
+	<header class="bar bar-nav">
+		<h1 class="title">报备</h1>
+	</header>
+	<div class="content">
+		<div class="list-panel" style="margin-bottom: 40px;">
+			<div class="item-content">
+				<div class="item-tit">姓名</div>
+				<div class="item-input">
+					<input type="text" class="item-orgin" placeholder="请输入访客真实姓名">
+				</div>
+			</div>
+			<div class="item-content">
+				<div class="item-tit">手机号</div>
+				<div class="item-input">
+					<input type="text" class="item-orgin" placeholder="请输入手机号码">
+				</div>
+			</div>
+			<div class="item-content j-id-panel">
+				<div class="item-tit">身份证照</div>
+				<div class="item-input">
+					<div class="uploaded">
+						<div class="item">
+							<div class="action"><button class="button j-id-delFileBtn"><i class="anticon anticon-closecircleo"></i>删除</button></div>
+							<div class="fileName j-id-fileName"></div>
+						</div>
+					</div>
+					<label class="file-panel">
+						<input type="file" id='id-file'>
+						<span class="upload-ipt">
+							<span class="button j-id-file-upload"><i class="anticon anticon-upload"></i>请上传身份证照</span>
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="item-content j-avatar-panel">
+				<div class="item-tit">客户头像</div>
+				<div class="item-input">
+					<div class="uploaded">
+						<div class="item">
+							<div class="action"><button class="button j-avatar-delFileBtn"><i class="anticon anticon-closecircleo"></i>删除</button></div>
+							<div class="fileName j-avatar-fileName"></div>
+						</div>
+					</div>
+					<label class="file-panel">
+						<input type="file" id='avatar-file'>
+						<span class="upload-ipt">
+							<span class="button j-avatar-file-upload"><i class="anticon anticon-upload"></i>请上传客户头像</span>
+						</span>
+					</label>
+				</div>
+			</div>
+			<div class="item-content">
+				<div class="item-tit">购买区域</div>
+				<div class="item-input">
+					<input type="text" class="item-orgin j-area-ipt" placeholder="选择区域">
+				</div>
+			</div>
+			<div class="item-content">
+				<div class="item-tit">购买楼盘</div>
+				<div class="item-input">
+					<!-- <input type="text" class="item-orgin j-house-ipt" placeholder="选择区域"> -->
+					<select name="" class="ui-select">
+						<option value="aa">aaa</option>
+						<option value="aa">aaa</option>
+						<option value="aa">aaa</option>
+					</select>
+				</div>
+			</div>
+			<div class="item-content">
+				<div class="item-tit">意向户型</div>
+				<div class="item-input">
+					<select name="" class="ui-select">
+						<option value="aa">aaa</option>
+						<option value="aa">aaa</option>
+						<option value="aa">aaa</option>
+					</select>
+					<!-- <input type="text" class="item-orgin j-type-ipt" placeholder="选择区域"> -->
+				</div>
+			</div>
+		</div>
+		<div class="_padding">
+			<a href="#" class="button button-big button-round button-fill">确认提交</a>
+		</div>
+	</div>
+	<nav class="bar bar-tab border _t">
+		<a class="tab-item external" href="#"> <i class="anticon anticon-home"></i>
+			<span class="tab-label">首页</span>
+		</a>
+		<a class="tab-item external" href="#">
+			<i class="anticon anticon-copy"></i>
+			<span class="tab-label">项目</span>
+		</a>
+		<a class="tab-item external active" href="#">
+			<i class="anticon anticon-edit"></i>
+			<span class="tab-label">报备</span>
+		</a>
+		<a class="tab-item external" href="#">
+			<i class="anticon anticon-user"></i>
+			<span class="tab-label">我的</span>
+		</a>
+	</nav>
+</div>
+</body>
+<script>
+$(function(){
+	$.init();
+	/*身份证照*/
+	$('#id-file').on('change',function(){
+		$('.j-id-panel').addClass('_active');
+		$('.j-id-fileName').text($(this).val());
+	});
+	$('#avatar-file').on('change',function(){
+		$('.j-avatar-panel').addClass('_active');
+		$('.j-avatar-fileName').text($(this).val());
+	});
+	$('.j-id-delFileBtn').on('click',function(){
+		$('.j-id-fileName').text('');
+		$('#id-file').val('');
+		$('.j-id-panel').removeClass('_active');
+	});
+	$('.j-avatar-delFileBtn').on('click',function(){
+		$('.j-avatar-fileName').text('');
+		$('#avatar-file').val('');
+		$('.j-avatar-panel').removeClass('_active');
+	});
+	/*购买区域*/
+	$(".j-area-ipt").picker({
+	  toolbarTemplate: '<header class="bar bar-nav">\
+	  <button class="button button-link pull-right close-picker">确定</button>\
+	  </header>',
+	  cols: [
+	    {
+	      textAlign: 'center',
+	      values: ['请选择', '渝中区','渝北区']
+	    }
+	  ]
+	});
+
+	/*购买楼盘*/
+	$(".j-house-ipt").picker({
+	  toolbarTemplate: '<header class="bar bar-nav">\
+	  <button class="button button-link pull-right close-picker">确定</button>\
+	  </header>',
+	  cols: [
+	    {
+	      textAlign: 'center',
+	      values: ['请选择', '金科天元道','龙湖时代天街']
+	    }
+	  ]
+	});
+
+	/*意向户型*/
+	$(".j-house-ipt").picker({
+	  toolbarTemplate: '<header class="bar bar-nav">\
+	  <button class="button button-link pull-right close-picker">确定</button>\
+	  </header>',
+	  cols: [
+	    {
+	      textAlign: 'center',
+	      values: ['请选择', '两室一厅','一室一厅','两室两厅']
+	    }
+	  ]
+	});
+});
+</script>
+</html>

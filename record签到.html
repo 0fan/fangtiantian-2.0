@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="_1m2 _record">
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>房天天v2</title>
+
+	<link rel="stylesheet" href="css/light7.min.css">
+	<link rel="stylesheet" href="css/ant-iconfont.css">
+	<link rel="stylesheet" href="css/app.css">
+
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/light7.min.js"></script>
+
+</head>
+<body>
+
+<div class="page">
+	<header class="bar bar-nav">
+		<!-- <a class="button button-link button-nav pull-left" href="#" data-transition='slide-out'>
+			<i class="anticon anticon-left"></i>
+		</a> -->
+		<h1 class="title">签到</h1>
+	</header>
+	<div class="content">
+		<div class="record-panel border _b">
+			<div class="date">
+				<div class="txt"><i class="anticon anticon-clockcircleo"></i><span class="j-date">1992-12-04</span></div>
+			</div>
+			<div class="record-btn j-record-btn">
+				<div class="txt">
+					<div class="sign">签到</div>
+					<div class="timer j-timer">17:21</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+<script>
+
+$(function(){
+	
+	$.init();
+
+	$('.j-date').text( new Date().getFullYear() + "-" + new Date().getMonth() + "-" + new Date().getDate() );
+
+	timer();
+
+	setInterval(function(){
+		timer();
+	},60000);
+
+
+	function timer(){
+		$('.j-timer').text( new Date().getHours() + ':' + new Date().getMinutes() );
+	}
+
+	$('.j-record-btn').on('click',function(){
+		if(!$(this).hasClass('disabled')){
+			/*签到逻辑*/
+			$(this).addClass('disabled');
+			$.toast('签到成功');
+		}
+	});
+
+});
+
+</script>
+</html>

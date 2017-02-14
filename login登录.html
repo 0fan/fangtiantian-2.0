@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="_1m2 _login">
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>房天天v2</title>
+
+	<link rel="stylesheet" href="css/light7.min.css">
+	<link rel="stylesheet" href="css/app.css">
+
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/light7.min.js"></script>
+
+</head>
+<body>
+
+<div class="page">
+	<header class="bar bar-nav">
+		<h1 class="title">登录</h1>
+	</header>
+	<div class="content">
+		<div class="logo-panel">
+			<div class="logo">
+				<img src="img/login_logo.png"></div>
+		</div>
+		<div class="list-block">
+			<ul>
+				<li>
+					<div class="item-content">
+						<div class="item-inner">
+							<div class="item-title label">姓名</div>
+							<div class="item-input">
+								<input type="text" placeholder="输入登录账户名或手机号" onfocus="$('.j-regAndForget').hide();" onblur="$('.j-regAndForget').show();">
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-inner">
+							<div class="item-title label">密码</div>
+							<div class="item-input">
+								<input type="password" placeholder="输入登录密码" onfocus="$('.j-regAndForget').hide();" onblur="$('.j-regAndForget').show();">
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="_padding">
+			<a href="#" class="button button-big button-round button-fill btn-submit">登录</a>
+		</div>
+		<div class="remenber-panel">
+			<label>
+				<input class="orgin" type="checkbox" name="remenber-pwd">
+				<span class="mirror">记住密码</span>
+			</label>
+		</div>
+		<div class="regAndForget-panel j-regAndForget">
+			<a class="txt" href="#">立即注册</a>
+			<span class="spacer"></span>
+			<a class="txt" href="#">忘记密码？</a>
+		</div>
+	</div>
+</div>
+
+</body>
+<script>
+$(function(){
+	$.init();
+});
+</script>
+</html>

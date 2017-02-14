@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="_1m2 _customerDetail">
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>房天天v2</title>
+
+	<link rel="stylesheet" href="css/light7.min.css">
+	<link rel="stylesheet" href="css/ant-iconfont.css">
+	<link rel="stylesheet" href="css/app.css">
+
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/light7.min.js"></script>
+</head>
+<body>
+<div class="page">
+	<header class="bar bar-nav">
+		<a class="button button-link button-nav pull-left" href="#" data-transition='slide-out'> <i class="anticon anticon-left"></i>
+		</a>
+		<h1 class="title">客户详情</h1>
+	</header>
+	<div class="content">
+		<div class="info-panel">
+			<div class="info-group border _t _b">
+				<div class="info-tit"> <i class="anticon anticon-solution"></i>
+					<span class="txt">基本资料</span>
+				</div>
+				<div class="info-content">
+					<div class="info-wrap">
+						<div class="info-item">
+							<div class="tit">姓名</div>
+							<div class="txt">李晓明</div>
+						</div>
+						<div class="info-item">
+							<div class="tit">性别</div>
+							<div class="txt">女</div>
+						</div>
+						<div class="info-item">
+							<div class="tit">身份证号</div>
+							<div class="txt">51152419910303030</div>
+						</div>
+						<div class="info-item">
+							<div class="tit">手机号</div>
+							<div class="txt">18580305252</div>
+						</div>
+						<div class="info-item">
+							<div class="tit">预约号</div>
+							<div class="txt">201606031558 22/10/001</div>
+						</div>
+						<div class="info-item">
+							<div class="tit">地区</div>
+							<div class="txt">江北区</div>
+						</div>
+						<div class="info-item">
+							<div class="tit">意向户型</div>
+							<div class="txt"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="info-group border _t _b">
+				<div class="info-tit">
+					<i class="anticon anticon-book"></i>
+					<span class="txt">报备情况</span>
+				</div>
+				<div class="info-content">
+					<div class="info-wrap">
+						<div class="info-item">
+							<div class="tit">报备时间</div>
+							<div class="txt">2016-02-26 10:00</div>
+						</div>
+						<div class="info-item">
+							<div class="tit">预约到访</div>
+							<div class="txt">2016-03-01 15:35</div>
+						</div>
+						<div class="info-item">
+							<div class="tit">客户到访</div>
+							<div class="txt">2次</div>
+						</div>
+						<div class="info-item">
+							<div class="tit">客户到访时间</div>
+							<div class="txt">
+								<ul style="margin: 0;padding-left: 1em;">
+									<li>2016-03-01 15:35</li>
+									<li>2016-03-01 15:35</li>
+								</ul>
+							</div>
+						</div>
+						<div class="info-item">
+							<div class="tit">电话到访时间</div>
+							<div class="txt">2016-03-01 15:35</div>
+						</div>
+						<div class="info-item">
+							<div class="tit">客户状态</div>
+							<div class="txt">已报备</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="info-group border _t _b">
+				<div class="info-tit">
+					<i class="anticon anticon-picture"></i>
+					<span class="txt">客户照片</span>
+				</div>
+				<div class="info-content">
+					<div class="row">
+						<div class="col-50">
+							<div class="img-item j-viewImg">
+								<img src="img/a.jpg">
+								<div class="name">身份证</div>
+							</div>
+						</div>
+						<div class="col-50">
+							<div class="img-item j-viewImg">
+								<img src="img/2.jpg">
+								<div class="name">头像</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+<script>
+
+$(function(){
+	
+	$.init();
+
+	$('.j-viewImg').on('click',function(e){
+		var wrap = $('<div style="position:absolute;top:0;right:0;bottom:0;left:0;background-color:rgba(0,0,0,.6);z-index:100;overflow:auto;"></div>'),
+			src  = $(this).find('img').attr('src'),
+			img = new Image();
+
+		img.src = src;
+		$(img).css({
+			position:'absolute',
+			top:0,
+			left:0,
+			bottom:0,
+			right:0,
+			margin:'auto'
+		}).appendTo(wrap);
+
+		wrap.on('click',function(){
+			$(this).hide(); 
+		});
+
+		wrap.appendTo('.page-current');
+	});
+
+});
+
+
+</script>
+</html>

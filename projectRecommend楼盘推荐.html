@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="_1m2 _projectRecommend">
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>房天天v2</title>
+
+	<link rel="stylesheet" href="css/light7.min.css">
+	<link rel="stylesheet" href="css/ant-iconfont.css">
+	<link rel="stylesheet" href="css/app.css">
+
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/light7.min.js"></script>
+	<script src="js/qrcode.js"></script>
+</head>
+<body>
+<div class="page">
+	<header class="bar bar-nav">
+		<a class="button button-link button-nav pull-left" href="#" data-transition='slide-out'> <i class="anticon anticon-left"></i>
+		</a>
+		<h1 class="title">分享二维码</h1>
+	</header>
+	<div class="content">
+		<div class="user border _b">
+			<div class="left">经纪人</div>
+			<div class="right">张夏明</div>
+		</div>
+		<div class="qrcode border _a">
+			<div class="qrcode-content" id='qrcode'></div>
+			<p class="tip">微信扫码立即购房</p>
+		</div>
+		<div class="fixed border _t">
+			<button class="button button-fill button-big">分享</button>
+		</div>
+	</div>
+</div>
+</body>
+<script>
+$(function(){
+	$.init();
+	var qrcode = new QRCode(document.getElementById("qrcode"),{
+	    width : 180,
+	    height : 180
+	});
+	/*这里写生成的二维码内容*/
+	qrcode.makeCode("http://www.lilinfan.com/");
+});
+</script>
+</html>

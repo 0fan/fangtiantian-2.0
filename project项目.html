@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="_1m2 _project">
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>房天天v2</title>
+
+	<link rel="stylesheet" href="css/light7.min.css">
+	<link rel="stylesheet" href="css/ant-iconfont.css">
+	<link rel="stylesheet" href="css/app.css">
+	
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/light7.min.js"></script>
+</head>
+<body>
+<div class="page">
+	<header class="bar bar-nav">
+		<h1 class="title">项目</h1>
+	</header>
+	<div class="content pull-to-refresh-content" style="margin-top: -44px;">
+		<!-- 默认的下拉刷新层 -->
+	    <div class="pull-to-refresh-layer">
+	        <div class="preloader"></div>
+	        <div class="pull-to-refresh-arrow"></div>
+	    </div>
+		<div class="list-panel">
+			<div class="list-filter">
+				<div class="row">
+				    <div class="col-33">
+				    	<select class="filter-orgin" name="area">
+				    		<option value="1">区域</option>
+				    	</select>
+				    </div>
+				    <div class="col-33">
+				    	<select class="filter-orgin" name="houseType">
+				    		<option value="1">户型</option>
+				    	</select>
+				    </div>
+				    <div class="col-33">
+				    	<select class="filter-orgin" name="developer">
+				    		<option value="1">开发商</option>
+				    	</select>
+				    </div>
+				</div> 
+			</div>
+			<div class="list-content">
+				<div class="list-item">
+					<div class="list-item-left">
+						<div class="img">
+							<img src="img/a.jpg" class="orgin">
+						</div>
+					</div>
+					<div class="list-item-main">
+						<div class="tit">金科十年城</div>
+						<div class="sub_1_tit">金科地产集团</div>
+						<div class="sub_2_tit">江北区</div>
+					</div>
+					<div class="list-item-right">
+						<div class="tag">
+							<div class="tag-inner">
+								<div class="tit">佣金</div>
+								<div class="txt">1%</div>
+							</div>
+						</div>
+						<div class="action">
+							<button class="button">推荐</button>
+						</div>
+					</div>
+				</div>
+				<div class="list-item">
+					<div class="list-item-left">
+						<div class="img">
+							<img src="img/a.jpg" class="orgin">
+						</div>
+					</div>
+					<div class="list-item-main">
+						<div class="tit">金科十年城</div>
+						<div class="sub_1_tit">金科地产集团</div>
+						<div class="sub_2_tit">江北区</div>
+					</div>
+					<div class="list-item-right">
+						<div class="tag">
+							<div class="tag-inner">
+								<div class="tit">佣金</div>
+								<div class="txt">1%</div>
+							</div>
+						</div>
+						<div class="action">
+							<button class="button">推荐</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<nav class="bar bar-tab border _t">
+	  <a class="tab-item external" href="#">
+	    <i class="anticon anticon-home"></i>
+	    <span class="tab-label">首页</span>
+	  </a>
+	  <a class="tab-item external active" href="#">
+	    <i class="anticon anticon-copy"></i>
+	    <span class="tab-label">项目</span>
+	  </a>
+	  <a class="tab-item external" href="#">
+	    <i class="anticon anticon-edit"></i>
+	    <span class="tab-label">报备</span>
+	  </a>
+	  <a class="tab-item external" href="#">
+	    <i class="anticon anticon-user"></i>
+	    <span class="tab-label">我的</span>
+	  </a>
+	</nav>
+</div>
+</body>
+<script>
+$(function(){
+	$.init();
+	$(document).on('refresh', '.pull-to-refresh-content',function(e) {
+		/*这里写下拉刷新事件，文档地址：http://m.sui.taobao.org/components/#pulltorefresh*/
+	    setTimeout(function() {
+	    	var html = '<div class=list-item><div class=list-item-main><div class=tit>金科十年城</div><div class=sub_1_tit>金科地产集团</div><div class=sub_2_tit>江北区</div></div><div class=list-item-left><div class=img><img src=img/a.jpg class=orgin></div></div><div class=list-item-right><div class=tag><div class=tag-inner><div class=tit>佣金</div><div class=txt>1%</div></div></div><div class=action><button class=button>推荐</button></div></div></div>';
+	        $(e.target).find('.list-content').append(html);
+	        // done
+	        $.pullToRefreshDone('.pull-to-refresh-content');
+	    }, 1000);
+	});
+});
+</script>
+</html>
