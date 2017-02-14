@@ -2,7 +2,7 @@
 ._em { font-weight: bold; }
 .f18 { font-size: 18px; }
 ._warming { color: #f44336; }
-.border { color: #d1d1d1; background-repeat: no-repeat; }
+.border { color: #d1d1d1; background-repeat: no-repeat; border: none!important;}
 .border._t { background-image: linear-gradient(180deg, currentColor 50%, transparent 0); background-position: top; background-size: 100% 1px; }
 .border._r { background-image: linear-gradient(270deg, currentColor 50%, transparent 0); background-position: right; background-size: 1px 100%; }
 .border._b { background-image: linear-gradient(0deg, currentColor 50%, transparent 0); background-position: bottom; background-size: 100% 1px; }
@@ -291,13 +291,23 @@
 .ui-select { display: block; width: 100%; height: 40px; margin: 0; padding: 0 10px; color: #333；; border: 1px solid #959595; border-radius: 5px; background: none; box-shadow: none; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; }
 
 /* mod-shareCard */
-.mod-shareCard{border: 1px solid #ccc;margin: 17px;v}
+.mod-shareCard{margin: 17px;border: 1px solid #ccc;}
 .mod-shareCard .mod-shareCard-tit { line-height: 35px; height: 35px; background-color: #3a7fb4; color: #fff; padding: 0 8px;}
 .mod-shareCard .mod-shareCard-tit .txt { font-size:15px;  }
 .mod-shareCard .mod-shareCard-content{background-color: #eee;position: relative;height: 350px;overflow:hidden;}
-.mod-shareCard .mod-shareCard-content .upload-act{margin-top: 65px;}
+.mod-shareCard .mod-shareCard-content .pic-wrap{display: block;}
+.mod-shareCard .mod-shareCard-content .upload-act{position: absolute;display: block;margin: auto;top: 0;right: 0;bottom: 0;left: 0;width: 140px;height: 140px;}
+.mod-shareCard .mod-shareCard-content .upload-act._active > .icon,
+.mod-shareCard .mod-shareCard-content .upload-act._active > .txt{display: none;}
+.mod-shareCard .mod-shareCard-content .upload-act input[type='file']{position: absolute;clip: rect(1px, 1px, 1px, 1px);}
 .mod-shareCard .mod-shareCard-content .upload-act > .icon{display: block;margin: auto;width: 110px;height: 110px;border-radius: 50%;border: 1px solid #005ca2;color: #005ca2;text-align: center;line-height: 110px;font-size: 30px;margin-bottom: 10px;}
 .mod-shareCard .mod-shareCard-content .upload-act > .txt{font-size: 13px;color: #666;text-align: center;}
 .mod-shareCard .mod-shareCard-content > .describe{position: absolute;bottom: 0;left: 0;width: 100%;height: 60px;background-color: rgba(0,0,0,.5);color: #fff;padding: 10px;font-size: 13px;overflow:hidden;}
 .mod-shareCard .mod-shareCard-footer{padding: 10px;overflow: hidden;}
+.mod-shareCard .mod-shareCard-footer > .qrcode{float: right;width: 43px;height: 43px;}
+.mod-shareCard .mod-shareCard-footer > .info-wrap{margin-right: 53px;}
+.mod-shareCard .mod-shareCard-footer > .info-wrap .info-item{overflow: hidden;font-size: 13px;margin-bottom: 5px;}
+.mod-shareCard .mod-shareCard-footer > .info-wrap .info-item:last-child{margin-bottom: 0;}
+.mod-shareCard .mod-shareCard-footer > .info-wrap .info-item > .tit{float: left;width: 50px;overflow: hidden;-ms-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;color: #005ca2;}
+.mod-shareCard .mod-shareCard-footer > .info-wrap .info-item > .value{margin-left: 50px;overflow: hidden;-ms-text-overflow: ellipsis;text-overflow: ellipsis;white-space: nowrap;color: #1a1a1a;}
 /* end mod-shareCard */

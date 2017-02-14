@@ -23,19 +23,22 @@
 		<h1 class="title">分享配图</h1>
 	</header>
 	<div class="content">
-		<div class="mod-shareCard">
+		<canvas id="export" style="display: none;"></canvas>
+		<div class="mod-shareCard border _a">
 			<div class="mod-shareCard-tit"><span class="txt">金科十年城</span></div>
 			<div class="mod-shareCard-content">
-				<div class="pic-wrap"></div>
-				<div class="upload-act">
+				<canvas class="pic-wrap" id='pic-preview'></canvas>
+				<label class="upload-act">
+					<input type="file" accept="image/*" id='uploadBtn'>
 					<i class="icon anticon anticon-camera"></i>
 					<div class="txt">拍照或者上传背景图片</div>
-				</div>
-				<div class="describe">
-					<div class="inner">请填写项目描述</div>
+				</label>
+				<div class="describe j-describe">
+					请填写项目描述
 				</div>
 			</div>
 			<div class="mod-shareCard-footer">
+				<div class="qrcode" id='shareBuildingQrcode'></div>
 				<div class="info-wrap">
 					<div class="info-item">
 						<div class="tit">经纪人</div>
@@ -46,16 +49,164 @@
 						<div class="value">15888888888</div>
 					</div>
 				</div>
-				<div class="qrcode" id='shareBuildingQrcode'></div>
 			</div>
+		</div>
+		<div class="content-block" style="margin: 20px 0;">
+			<a href="#" class="button button-big button-round button-fill">分享</a>
 		</div>
 	</div>
 </div>
 </body>
-
+<script src="js/qrcode.js"></script>
 <script>
 $(function(){
+
+	$(document).on('click','.j-describe',function(){
+		$.prompt(
+			'项目描述',
+			function(value){
+				/* ok */
+				$('.j-describe').text(value);
+			}
+		);
+	});
+	
+	var shareCode = new QRCode(document.getElementById("shareBuildingQrcode"),{
+	    width : 43,
+	    height : 43
+	});
+	/*这里写生成的二维码内容*/
+	shareCode.makeCode("http://www.lilinfan.com/");
+
 	$.init();
 });
+
+/* 上传相关 */
+var upload = document.getElementById('uploadBtn');
+upload.addEventListener('change',function(e){
+	var file = this.files[0];
+	/* 判断类型 */
+	if(!/image\/\w+/.test(file.type)){
+	    alert("请确保文件为图像类型");
+	    return false;
+	}
+	$.showIndicator();
+	var reader = new FileReader();
+	reader.readAsDataURL(file);
+	reader.onload = function(e){
+		var cvs = document.getElementById('pic-preview');
+		cvs.width = $('.mod-shareCard').width();
+		cvs.height = $('.mod-shareCard-content').height();
+		var ctx = cvs.getContext('2d');
+		var img = new Image();
+		img.src = this.result;
+		img.onload = function(){
+			var imgW   = img.width;
+			var imgH   = img.height;
+			var scale  = imgW/imgH;
+			var transW = $('#pic-preview').width();
+			var transH = parseInt(transW/scale);
+
+			ctx.drawImage(img,0,0,transW,transH);
+			$('.upload-act').hide();
+			$.hideIndicator()
+
+			/* 这个就是保存的图片 */
+			var cropStr = cvs.toDataURL("image/jpeg",0.7);
+			
+			renderPic({
+				tit : '测试测试测试',
+				name : '测试测试',
+				tel : 123456789,
+				describe: $.trim($('.j-describe').text()),
+				src : cropStr
+			});
+
+		}
+	}
+});
+
+/* 生成图片 */
+
+
+function renderPic(){
+
+	var arg          = arguments[0];
+	    arg.tit      = arg.tit || '默认标题';
+	    arg.name     = arg.name || '默认姓名';
+	    arg.tel      = arg.tel || '16888888888';
+	    arg.describe = arg.describe || '默认描述';
+
+	var cvs = document.getElementById('export');
+	var ctx = cvs.getContext('2d');
+	cvs.width  = 375;
+	cvs.height = 450;
+	var cW = cvs.width;
+	var cH = cvs.height;
+	var hH = 35;
+
+	ctx.fillStyle = '#fff';
+	ctx.beginPath();
+		ctx.fillRect(0,0,cW,cH);
+	ctx.closePath();
+
+	/* 标题 */
+	ctx.fillStyle = '#3a7fb4';
+	ctx.beginPath();
+		ctx.fillRect(0,0,cW,hH);
+	ctx.closePath();
+
+	ctx.fillStyle = '#fff';
+	ctx.font = '15px Arial';
+	ctx.fillText(arg.tit,14,22);
+	/* 标题结束 */
+
+	var img = new Image();
+	img.src = arg.src;
+	img.onload = function(){
+		/*var imgW = img.width;
+		var imgH = img.height;
+		var scale = imgW/imgH;
+		var transW = cvs.width;
+		var transH = parseInt(imgH*scale);*/
+		ctx.drawImage(img,0,35,cW,335);
+
+		/* 描述 */
+		ctx.fillStyle = 'rgba(0,0,0,0.5)';
+		ctx.beginPath();
+			ctx.fillRect(0,cH-120,cW,40);
+		ctx.closePath();
+		/* end 描述 */
+		ctx.fillStyle = '#fff';
+		ctx.font = '13px Arial';
+		ctx.fillText(arg.describe,8,cH-95);
+
+		var codeImage = new Image();
+		codeImage.src = $('#shareBuildingQrcode img').attr('src');
+		codeImage.onload = function(){
+			ctx.drawImage(codeImage,cW-54,cH-54);
+			var cropStr = cvs.toDataURL("image/jpeg",1);
+			window.location = cropStr;
+		}
+	}
+
+
+	ctx.fillStyle = '#005ca2';
+	ctx.font = '13px Arial';
+	ctx.fillText('经纪人',8,cH-40);
+	ctx.fillStyle = '#005ca2';
+	ctx.font = '13px Arial';
+	ctx.fillText('电话',8,cH-20);
+
+	ctx.fillStyle = '#1a1a1a';
+	ctx.font = '13px Arial';
+	ctx.fillText(arg.name,60,cH-40);
+	ctx.fillStyle = '#1a1a1a';
+	ctx.font = '13px Arial';
+	ctx.fillText(arg.tel,60,cH-20);
+
+
+}
+
 </script>
 </html>
