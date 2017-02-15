@@ -211,46 +211,13 @@
 ._reg .terms-panel .terms-content label input { position: relative; top: 0; margin-right: 5px; vertical-align: middle; }
 ._reg .terms-panel .terms-content label .txt { font-size: 12px; font-weight: bold; color: #1a1a1a; }
 ._reg .terms-panel .terms-content .tip { font-size: 12px; color: #ce0000; }
-._reg .contact { font-size: 12px; margin-top: 40px; text-align: center; color: #303030; }
+._reg .contact { font-size: 12px; margin-top: 40px; text-align: center; color: #303030;}
 
 /* _buildingDetail */
-._buildingDetail .page > .content { padding-bottom: 50px; background: #eee; }
-._buildingDetail .info-group { margin: 10px 0; padding: 10px; background-color: #fff; }
-._buildingDetail .info-group .info-tit { line-height: 40px; height: 40px; color: #333; }
-._buildingDetail .info-group .info-tit .txt { font-size: 15px; vertical-align: middle; }
-._buildingDetail .info-group .info-tit .anticon { font-size: 15px; margin-right: 3px; vertical-align: middle; color: #48b54b; }
-._buildingDetail .info-group .info-item { font-size: 15px; overflow: hidden; padding: 10px 0; color: #333; }
-._buildingDetail .info-group .info-item .tit { float: left; width: 80px; color: #666; }
-._buildingDetail .info-group .info-item .tit:after { content: ':'; }
-._buildingDetail .info-group .info-item .txt { margin-left: 90px; color: #333; }
-._buildingDetail .info-group .txt-panel { font-size: 15px; line-height: 1.5; color: #333; }
-._buildingDetail .info-group .info-content .img-item { overflow: hidden; padding: 10px 0; }
-._buildingDetail .info-group .info-content .img-item:last-child { margin-bottom: -10px; }
-._buildingDetail .info-group .info-content .img-item .img-left { float: left; overflow: hidden; width: 80px; height: 60px; }
-._buildingDetail .info-group .info-content .img-item .img-left img { display: block; width: 100%; height: auto; }
-._buildingDetail .info-group .info-content .img-item .img-main { margin-left: 90px; color: #333; }
-._buildingDetail .info-group .info-content .img-item .img-main .tit { font-size: 16px; font-size: 15px; line-height: 1.35; display: block; float: left; width: 90%; color: #333; }
-._buildingDetail .info-group .info-content .img-item .img-main .anticon { line-height: 60px; display: block; float: right; width: 10%; text-align: right; color: #ddd; }
-._buildingDetail .info-group .info-content .map { overflow: hidden; height: 160px; }
-._buildingDetail .info-group .info-content .map img { width: 100%; height: auto; }
-._buildingDetail .swiper-container { position: relative; width: 100%; height: 180px; }
-._buildingDetail .swiper-container > .tit { font-size: 15px; line-height: 1.35; position: absolute; z-index: 10; top: 0; left: 0; width: 100%; padding: 8px 10px; color: #fff; background-color: rgba(0, 0, 0, .6); }
-._buildingDetail .swiper-container .swiper-slide img { width: 100%; height: auto; }
-._buildingDetail .swiper-container-horizontal > .swiper-pagination { bottom: 0; }
-._buildingDetail .short-panel { margin: 20px 0; }
-._buildingDetail .short-panel .short-wrap { overflow: hidden; margin: 0; padding: 0; list-style: none; }
-._buildingDetail .short-panel .short-item { float: left; width: 20%; text-align: center; }
-._buildingDetail .short-panel .short-item > a { display: block; }
-._buildingDetail .short-panel .short-item > a .img { font-size: 0; display: block; overflow: hidden; width: 44px; height: 44px; margin: auto; margin-bottom: 6px; }
-._buildingDetail .short-panel .short-item > a .img img { display: block; width: 100%; height: 100%; }
-._buildingDetail .short-panel .short-item > a .txt { font-size: 15px; line-height: 1; display: block; color: #333; }
-._buildingDetail .fixed-action { line-height: 50px; position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; background-color: #fff; }
-._buildingDetail .fixed-action .action-right { float: right; width: 130px; height: 100%; text-align: center; }
-._buildingDetail .fixed-action .action-right .button { display: inline-block; }
-._buildingDetail .fixed-action .action-main { box-sizing: border-box; margin-right: 130px; padding: 0 10px; }
-._buildingDetail .fixed-action .action-main .txt { font-size: 16px; line-height: 1; padding: 1px 10px 1px 1px; color: #ce0000; border: 1px solid #ce0000; }
-._buildingDetail .fixed-action .action-main .txt:before { display: inline; margin-right: 10px; padding: 0 5px; content: '佣金'; color: #fff; background-color: #ce0000; }
-
+._buildingDetail .content > .flash{height: 185px;}
+._buildingDetail .swiper-container-horizontal>.swiper-pagination{bottom: 0;}
+._buildingDetail .swiper-pagination-bullet{width: 15px;height: 4px;border-radius:2px; background-color: #fff;border: 1px solid #005ca2;opacity: 1;}
+._buildingDetail .swiper-pagination-bullet-active{background-color:#005ca2; }
 /* _projectRecommend */
 ._projectRecommend .page > .content { background: #eee; }
 ._projectRecommend .user { line-height: 50px; overflow: hidden; height: 50px; margin-bottom: 20px; padding: 0 15px; background-color: #fff; }
