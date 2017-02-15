@@ -52,7 +52,7 @@
 			</div>
 		</div>
 		<div class="content-block" style="margin: 20px 0;">
-			<a href="#" class="button button-big button-round button-fill">分享</a>
+			<a href="#" class="button button-big button-round button-fill disabled" id='shareBtn'>分享</a>
 		</div>
 	</div>
 </div>
@@ -108,7 +108,7 @@ upload.addEventListener('change',function(e){
 			var transH = parseInt(transW/scale);
 
 			ctx.drawImage(img,0,0,transW,transH);
-			$('.upload-act').hide();
+			/*$('.upload-act').hide();*/
 			$.hideIndicator()
 
 			/* 这个就是保存的图片 */
@@ -127,6 +127,26 @@ upload.addEventListener('change',function(e){
 });
 
 /* 生成图片 */
+
+$(document).on('click','#shareBtn:not(.disabled)',function(){
+	modal();
+});
+
+function modal(){
+	$.modal({
+		title:'请长按图片保存',
+		text:'<img style="width:12rem;" src='+ cropStr+'>',
+		buttons:
+		[
+			{
+				text:'确定',
+				onClick:function(){
+					$.closeModal();
+				}
+			}
+		]
+	});
+}
 
 
 function renderPic(){
@@ -185,8 +205,9 @@ function renderPic(){
 		codeImage.src = $('#shareBuildingQrcode img').attr('src');
 		codeImage.onload = function(){
 			ctx.drawImage(codeImage,cW-54,cH-54);
-			var cropStr = cvs.toDataURL("image/jpeg",1);
-			window.location = cropStr;
+			window.cropStr = cvs.toDataURL("image/jpeg",1);
+			$('#shareBtn').removeClass('disabled');
+			modal();
 		}
 	}
 
