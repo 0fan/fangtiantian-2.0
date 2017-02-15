@@ -10,7 +10,7 @@
     "icons": {
         "72": "icon.png"
     },
-    "launch_path": "shareBuilding.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+    "launch_path": "buildingDetail.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
     "developer": {
         "name": "",/*开发者名称*/
         "email": "",/*开发者邮箱地址*/
@@ -214,6 +214,22 @@
 				],
 				"refer": [],
 				"priority": 0
+			},
+			"buildingDetail.html": {
+				"resources": [
+					"img/a.jpg",
+					"css/ant-iconfont.css",
+					"js/light7.min.js",
+					"img/2.jpg",
+					"css/light7.min.css",
+					"js/jquery-3.1.1.min.js",
+					"css/light7-swiper.min.css",
+					"fonts/ant/iconfont.woff",
+					"css/app.css",
+					"js/light7-swiper.min.js"
+				],
+				"refer": [],
+				"priority": 0
 			}
 		},
 		"idle": {
@@ -228,15 +244,12 @@
 				"addCard-step2我的银行卡-添加银行卡-步骤2.html",
 				"js/light7.js",
 				"commission我的佣金.html",
-				"img/a.jpg",
 				"img/short-2.png",
 				"js/i18n/cn.min.js",
 				"img/short-1.png",
 				"js/light7-swiper.js",
 				"find-password找回密码.html",
-				"css/light7-swiper.min.css",
 				"img/i-form-url.png",
-				"js/light7-swiper.min.js",
 				"fonts/ant/iconfont.eot",
 				"fonts/ant/iconfont.svg",
 				"addCard我的银行卡-添加银行卡.html",
@@ -251,7 +264,6 @@
 				"main首页.html",
 				"user个人中心.html",
 				"bind-phone-valid绑定手机-验证绑定手机.html",
-				"img/2.jpg",
 				"fonts/light7/ratchicons.svg",
 				"img/avatar-default.png",
 				"img/short-5.png",

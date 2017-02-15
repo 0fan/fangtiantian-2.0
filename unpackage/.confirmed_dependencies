@@ -8,6 +8,21 @@
       "fonts/ant/iconfont.woff",
       "css/app.css",
       "js/qrcode.js"
+    ],
+    "refer": []
+  },
+  "buildingDetail.html": {
+    "resources": [
+      "img/a.jpg",
+      "css/ant-iconfont.css",
+      "js/light7.min.js",
+      "img/2.jpg",
+      "css/light7.min.css",
+      "js/jquery-3.1.1.min.js",
+      "css/light7-swiper.min.css",
+      "fonts/ant/iconfont.woff",
+      "css/app.css",
+      "js/light7-swiper.min.js"
     ]
   }
 }
