@@ -231,7 +231,7 @@
 ._buildingDetail .info-group .info-group-content .tel .txt{display: inline-block;vertical-align: middle;}
 ._buildingDetail .info-group .info-group-content .tel .icon{font-size: 18px;margin-right: 5px;}
 ._buildingDetail .info-group .info-group-content .tel .txt{text-decoration: underline;}
-._buildingDetail .shortbar{position: fixed;bottom: 0;width: 100%;left: 0;height: 50px;display: table;background-color: #fff;padding: 0 12px;}
+._buildingDetail .shortbar{position: absolute;bottom: 0;width: 100%;left: 0;height: 50px;display: table;background-color: #fff;padding: 0 12px;}
 ._buildingDetail .shortbar > .wrap{display: table-row;}
 ._buildingDetail .shortbar > .wrap >.item{display: table-cell;vertical-align: middle;}
 ._buildingDetail .shortbar > .wrap >.item:first-child{text-align: left;}
